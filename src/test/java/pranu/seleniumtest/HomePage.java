@@ -28,7 +28,7 @@ public class HomePage extends Base{
         LandingPage page=new LandingPage(driver);
         page.getLogin().click();
 
-        LoginPage lp=new LoginPage(driver);
+        LoginPage lp = new LoginPage(driver);
         lp.getEmailID().sendKeys(username);
         lp.getPassword().sendKeys(password);
         log.error("Invalid username or password");
