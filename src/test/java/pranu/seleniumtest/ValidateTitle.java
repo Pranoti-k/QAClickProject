@@ -1,37 +1,37 @@
 package pranu.seleniumtest;
 
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageObject.LandingPage;
+import pageObject.LoginPage;
 import resources.Base;
 
 import java.io.IOException;
 
-public class ValidateNavigateBar extends Base{
-//WebDriver driver;
 
-    public static Logger log= LogManager.getLogger(ValidateNavigateBar.class.getName());
+public class ValidateTitle extends Base{
+    public static Logger log=LogManager.getLogger(ValidateTitle.class.getName());
 
     @BeforeTest
     public void initialize() throws IOException {
-        driver=initialiazeDriver();
-        log.info("Driver is successfully initialiazed");
+        driver = initialiazeDriver();
+        log.info("Driver is Initialiazed");
         driver.get(props.getProperty("url"));
-        log.info("Succesfully navigated to website");
+        log.info("Navigated to Home Page");
     }
-
     @Test
     public void validatingTitle() throws IOException {
 
-log.info("Passing driver to LandingPage class");
-        LandingPage page=new LandingPage(driver);
-       Assert.assertTrue(page.getNavigationBar().isDisplayed());
-       log.info("Navigation Bar is displayed on Home Page");
 
+        LandingPage page=new LandingPage(driver);
+        Assert.assertEquals(page.getTitle().getText(),"FEATURED COURSES");
+        log.info("Text is successfully validated");
 
 
     }
@@ -40,7 +40,6 @@ log.info("Passing driver to LandingPage class");
     public void tearDown()
     {
         driver.close();
-
     }
 
 

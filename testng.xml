@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Pranoti Kulkarni/IdeaProjects/E2EProject">
+        <classes>
+            <class name="pranu.seleniumtest.HomePage"/>
+            <class name="pranu.seleniumtest.ValidateNavigateBar"/>
+              <class name="pranu.seleniumtest.ValidateTitle"/>
+                 </classes>
+    </test>
+</suite>
