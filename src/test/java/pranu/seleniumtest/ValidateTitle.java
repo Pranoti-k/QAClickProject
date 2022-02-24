@@ -3,6 +3,7 @@ package pranu.seleniumtest;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -16,6 +17,8 @@ import java.io.IOException;
 
 
 public class ValidateTitle extends Base{
+
+    public WebDriver driver;
     public static Logger log=LogManager.getLogger(ValidateTitle.class.getName());
 
     @BeforeTest
@@ -30,7 +33,7 @@ public class ValidateTitle extends Base{
 
 
         LandingPage page=new LandingPage(driver);
-        Assert.assertEquals(page.getTitle().getText(),"FEATURED COURSES");
+        Assert.assertEquals(page.getTitle().getText(),"FEATURED COURSE");
         log.info("Text is successfully validated");
 
 

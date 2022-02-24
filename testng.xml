@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-
-    <test name="Running Homepage">
+<suite name="All Test Suite" parallel="tests">
+<listeners>
+    <listener class-name="pranu.seleniumtest.Listener"></listener>
+    
+</listeners>
+  <test name="Running Homepage">
         <classes>
             <class name="pranu.seleniumtest.HomePage"/>
         </classes>

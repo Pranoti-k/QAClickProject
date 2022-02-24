@@ -2,6 +2,7 @@ package pranu.seleniumtest;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
@@ -17,6 +18,7 @@ public class HomePage extends Base{
 
     public static Logger log= LogManager.getLogger(HomePage.class.getName());
 
+   public WebDriver driver;
 
     @Test(dataProvider = "getData")
     public void basepageNavigation(String username,String password) throws IOException {

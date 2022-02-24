@@ -1,8 +1,14 @@
 package resources;
 
+import io.opentelemetry.exporter.logging.SystemOutLogExporter;
+import org.apache.logging.log4j.core.config.plugins.util.ResolverUtil;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,7 +22,7 @@ public class Base {
 
     public WebDriver initialiazeDriver() throws IOException {
         props=new Properties();
-        FileInputStream fis=new FileInputStream("C:\\Users\\Pranoti Kulkarni\\IdeaProjects\\E2EProject\\src\\main\\java\\resources\\data.properties");
+        FileInputStream fis=new FileInputStream("C:\\Users\\Pranoti Kulkarni\\IdeaProjects\\QAClickProject\\src\\main\\java\\resources\\data.properties");
         props.load(fis);
        String browsrname= props.getProperty("browser");
 
@@ -41,5 +47,12 @@ System.out.println(browsrname);
 
 
        return driver;
+    }
+
+    public void getScreenshoot(String Testcasename,WebDriver driver) throws IOException {
+        TakesScreenshot ts=(TakesScreenshot) driver;
+        File source=ts.getScreenshotAs(OutputType.FILE);
+      // String destination = System.getProperty("")+"\\reports\\"+Testcasename+".png";
+       FileHandler.copy(source,new File("C:\\Users\\Pranoti Kulkarni\\IdeaProjects\\QAClickProject"+Testcasename+".png"));
     }
 }
